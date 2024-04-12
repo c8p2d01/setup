@@ -1,9 +1,12 @@
 #!/usr/bin/bash
+
+export SHELL=/bin/bash
+
 ######       Variables       ######
 
 linqs="\[\033[38;2;254;220;186m\]"
 end_c="\[\e[0m\]"
-user="\[\033[38;2;0;0;0m\]"
+user="\[\033[38;2;68;68;238m\]"
 signs="\[\033[38;2;238;51;238m\]"
 branch="\[\033[38;2;255;255;170m\]"
 host="\[\033[0;32m\]"
@@ -27,8 +30,8 @@ setGitStatus () {
 
 psOne () {
 	c_status=$?
-	r_jobs=$(jobs | wc -l)
-	r_containers=$(docker ps -a 2>/dev/null | sed '1d' | wc -l)
+	r_jobs=$(jobs | wc -l | tr -d ' ')
+	r_containers=$(docker ps -a 2>/dev/null | sed '1d' | wc -l | tr -d ' ')
 
 	path_r=$(pwd | sed "s|$HOME|~|")
 	host_r=$(hostname | cut -d "." -f1 )
@@ -72,14 +75,14 @@ function red {		# return a string that colors the terminal red
 
 function termColor {	# return a sequence representing the RGB as Terminal escapement. param 1: RGB as hex
 	MYVAR="$1"
-	if [[ $(echo -n $MYVAR | wc -c) == 6 ]];
+	if [[ $(echo -n $MYVAR | wc -c | tr -d ' ') != 6 ]];
 	then
+		echo '"\[\033[38;2;255;255;255;64m\]"'
+	else
 		HEX_BLUE=${MYVAR:4:2}
 		HEX_GREEN=${MYVAR:2:2}
 		HEX_RED=${MYVAR:0:2}
 		echo '"\[\033[38;2;'$((16#$HEX_RED))';'$((16#$HEX_GREEN))';'$((16#$HEX_BLUE))'m\]"'
-	else
-		echo '"\[\033[38;2;255;255;255m\]"'
 	fi
 }
 
@@ -103,3 +106,4 @@ alias sus="source $HOME/.bashrc"
 alias launch="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe $PWD"
 alias rc="cat ~/.bashrc"
 alias crc="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe ~/.bashrc"
+alias stats="git status"
