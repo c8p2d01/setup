@@ -2,6 +2,7 @@
 
 cd $PWD/setup && git pull
 OS=$(uname -s)
+
 if [ "$(diff .bashrc ~/.bashrc)" ]
 then
 	if [ "$OS" == "Darwin" ]

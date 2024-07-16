@@ -116,4 +116,7 @@ alias francinette="sh $HOME/francinette/tester.sh"
 
 alias paco="sh $HOME/francinette/tester.sh"
 
+alias pain='osascript -e "tell application \"System Events\""  -e "tell appearance preferences" -e "repeat 69420 times" -e "if dark mode is false then" -e "set dark mode to true" -e "else" -e "set dark mode to false" -e "end if" -e "delay 0.2" -e "end repeat" -e "end tell" -e "end tell" &' #MAC
+alias meds='pkill -9 osascript' #MAC
 alias lock="osascript -e 'tell application id \"com.apple.ScreenSaver.Engine\" to launch'" #MAC
+alias rebrew="rm -rf $HOME/.brew && git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew && echo 'export PATH=$HOME/.brew/bin:$PATH' >> $HOME/.bashrc && source $HOME/.bashrc && brew update"
