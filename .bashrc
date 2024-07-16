@@ -2,6 +2,8 @@
 
 export SHELL=/bin/bash
 
+OS=$(uname -s)
+
 ######       Variables       ######
 
 linqs="\[\033[38;2;254;220;186m\]"
@@ -103,7 +105,15 @@ PROMPT_COMMAND='psOne'
 
 alias ll="ls -laG"
 alias sus="source $HOME/.bashrc"
-alias launch="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe $PWD"
+alias launch="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe $PWD" #WIN
+alias launch="open -n /Applications/Visual\ Studio\ Code.app $PWD" #MAC
 alias rc="cat ~/.bashrc"
-alias crc="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe ~/.bashrc"
+alias crc="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe ~/.bashrc" #WIN
+alias crc="open -n /Applications/Visual\ Studio\ Code.app --args $HOME/.bashrc" #MAC
 alias stats="git status"
+
+alias francinette="sh $HOME/francinette/tester.sh"
+
+alias paco="sh $HOME/francinette/tester.sh"
+
+alias lock="osascript -e 'tell application id \"com.apple.ScreenSaver.Engine\" to launch'" #MAC
