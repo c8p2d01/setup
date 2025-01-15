@@ -119,6 +119,6 @@ alias paco="sh $HOME/francinette/tester.sh"
 alias pain='osascript -e "tell application \"System Events\""  -e "tell appearance preferences" -e "repeat 69420 times" -e "if dark mode is false then" -e "set dark mode to true" -e "else" -e "set dark mode to false" -e "end if" -e "delay 0.2" -e "end repeat" -e "end tell" -e "end tell" &' #MAC
 alias meds='pkill -9 osascript' #MAC
 alias lock="osascript -e 'tell application id \"com.apple.ScreenSaver.Engine\" to launch'" #MAC
-alias rebrew="rm -rf $HOME/.brew && git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew && source $HOME/.bashrc && brew update"
-export PATH=$HOME/.brew/bin:$PATH #MAC
-echo "https://www.youtube.com/watch?v=7YoDt-MxhHg" | pbcopy #MAC
+alias rebrew="rm -rf $HOME/.brew && git clone --depth=1 https://github.com/Homebrew/brew $HOME/goinfre/.brew && source $HOME/.bashrc && brew update && export HOMEBREW_CASK_OPTS='--appdir=~/goinfre/Applications' && export HOMEBREW_MAKE_JOBS=4" #MAC
+alias copy="echo ' use > | pbcopy< to store results in Zwischenablage'" #MAC
+export PATH=$HOME/goinfre/.brew/bin:$PATH #MAC

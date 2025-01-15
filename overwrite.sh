@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-
+chmod 777 $HOME/.bashrc
 cd $PWD/setup && git pull
 OS=$(uname -s)
 
